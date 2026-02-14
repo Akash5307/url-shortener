@@ -1,4 +1,4 @@
-package com.url.shortener.models;
+package com.url.shortener.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,6 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(name="url_mapping")
 public class UrlMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

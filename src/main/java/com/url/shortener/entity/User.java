@@ -1,4 +1,4 @@
-package com.url.shortener.models;
+package com.url.shortener.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

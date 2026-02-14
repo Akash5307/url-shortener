@@ -1,6 +1,6 @@
 package com.url.shortener.service;
 
-import com.url.shortener.models.User;
+import com.url.shortener.entity.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -29,13 +29,14 @@ public class UserDetailsImpl implements UserDetails {
         this.email = email;
         this.authorities = authorities;
     }
+    //convert our custom User into object type known by Spring Security
     public static UserDetailsImpl build(User user){
         GrantedAuthority authority=new SimpleGrantedAuthority(user.getRole());
         return new UserDetailsImpl(
                 user.getId(),
                 user.getUsername(),
-                 user.getEmail(),
                 user.getPassword(),
+                user.getEmail(),
                 Collections.singletonList(authority)
         );
     }
